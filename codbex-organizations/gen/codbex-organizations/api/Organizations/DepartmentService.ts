@@ -19,6 +19,17 @@ class DepartmentService {
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
 
+            let Organization = parseInt(ctx.queryParameters.Organization);
+            Organization = isNaN(Organization) ? ctx.queryParameters.Organization : Organization;
+
+            if (Organization !== undefined) {
+                options.$filter = {
+                    equals: {
+                        Organization: Organization
+                    }
+                };
+            }
+
             return this.repository.findAll(options);
         } catch (error: any) {
             this.handleError(error);

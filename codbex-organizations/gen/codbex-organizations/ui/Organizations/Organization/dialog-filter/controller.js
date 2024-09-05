@@ -14,6 +14,7 @@ angular.module('page', ["ideUI", "ideView"])
 			$scope.entity = params.entity ?? {};
 			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
+			$scope.optionsCompany = params.optionsCompany;
 		}
 
 		$scope.filter = function () {
@@ -45,10 +46,14 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.CostCenter) {
 				filter.$filter.contains.CostCenter = entity.CostCenter;
 			}
+			if (entity.Company !== undefined) {
+				filter.$filter.equals.Company = entity.Company;
+			}
 			messageHub.postMessage("entitySearch", {
 				entity: entity,
 				filter: filter
 			});
+			messageHub.postMessage("clearDetails");
 			$scope.cancel();
 		};
 

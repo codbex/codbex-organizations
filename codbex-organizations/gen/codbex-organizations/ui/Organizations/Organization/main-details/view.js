@@ -6,12 +6,14 @@
 const viewData = {
     id: "Organization-details",
     label: "Organization",
-    link: "/services/web/codbex-organizations/gen/codbex-organizations/ui/Organizations/Organization/dialog-window/index.html",
+    factory: "frame",
+    region: "center",
+    link: "/services/web/codbex-organizations/gen/codbex-organizations/ui/Organizations/Organization/main-details/index.html",
     perspectiveName: "Organizations",
 };
 
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
+    exports.getView = function () {
         return viewData;
     }
 }

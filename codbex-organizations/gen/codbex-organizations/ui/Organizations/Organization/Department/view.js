@@ -4,14 +4,16 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "Department-filter",
-    label: "Department Filter",
-    link: "/services/web/codbex-organizations/gen/codbex-organizations/ui/Organizations/Department/dialog-filter/index.html",
+    id: "Department",
+    label: "Department",
+    factory: "frame",
+    region: "bottom",
+    link: "/services/web/codbex-organizations/gen/codbex-organizations/ui/Organizations/Organization/Department/index.html",
     perspectiveName: "Organizations",
 };
 
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
+    exports.getView = function () {
         return viewData;
     }
 }

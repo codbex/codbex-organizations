@@ -8,7 +8,7 @@ const perspectiveData = {
 	name: 'Organizations',
 	link: '/services/web/codbex-organizations/gen/codbex-organizations/ui/Organizations/index.html',
 	order: 105,
-	icon: '/services/web/resources/unicons/university.svg',
+	icon: '/services/web/resources/unicons/building.svg',
 };
 
 if (typeof exports !== 'undefined') {

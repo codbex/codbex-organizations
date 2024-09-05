@@ -23,6 +23,11 @@
                         "length": 10,
                         "nullable": true,
                         "name": "ORGANIZATION_COSTCENTER"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "ORGANIZATION_COMPANY"
                     }
                 ]
             },
@@ -49,6 +54,15 @@
                         "name": "DEPARTMENT_ORGANIZATION"
                     }
                 ]
+            },
+            {
+                "name": "Organization_Company",
+                "type": "foreignKey",
+                "table": "CPDBEX_ORGANIZATION",
+                "constraintName": "Organization_Company",
+                "columns": "ORGANIZATION_COMPANY",
+                "referencedTable": "CPDBEX_COMPANY",
+                "referencedColumns": "COMPANY_ID"
             },
             {
                 "name": "Department_Organization",

@@ -7,11 +7,13 @@ export interface OrganizationEntity {
     readonly Id: number;
     Name?: string;
     CostCenter?: string;
+    Company?: number;
 }
 
 export interface OrganizationCreateEntity {
     readonly Name?: string;
     readonly CostCenter?: string;
+    readonly Company?: number;
 }
 
 export interface OrganizationUpdateEntity extends OrganizationCreateEntity {
@@ -24,36 +26,43 @@ export interface OrganizationEntityOptions {
             Id?: number | number[];
             Name?: string | string[];
             CostCenter?: string | string[];
+            Company?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
             Name?: string | string[];
             CostCenter?: string | string[];
+            Company?: number | number[];
         };
         contains?: {
             Id?: number;
             Name?: string;
             CostCenter?: string;
+            Company?: number;
         };
         greaterThan?: {
             Id?: number;
             Name?: string;
             CostCenter?: string;
+            Company?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
             Name?: string;
             CostCenter?: string;
+            Company?: number;
         };
         lessThan?: {
             Id?: number;
             Name?: string;
             CostCenter?: string;
+            Company?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
             Name?: string;
             CostCenter?: string;
+            Company?: number;
         };
     },
     $select?: (keyof OrganizationEntity)[],
@@ -99,6 +108,11 @@ export class OrganizationRepository {
                 name: "CostCenter",
                 column: "ORGANIZATION_COSTCENTER",
                 type: "VARCHAR",
+            },
+            {
+                name: "Company",
+                column: "ORGANIZATION_COMPANY",
+                type: "INTEGER",
             }
         ]
     };
