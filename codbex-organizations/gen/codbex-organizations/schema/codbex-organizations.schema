@@ -1,0 +1,65 @@
+{
+    "schema": {
+        "structures": [
+            {
+                "name": "CPDBEX_ORGANIZATION",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "ORGANIZATION_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 50,
+                        "nullable": true,
+                        "name": "ORGANIZATION_NAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 10,
+                        "nullable": true,
+                        "name": "ORGANIZATION_COSTCENTER"
+                    }
+                ]
+            },
+            {
+                "name": "CPDBEX_DEPARTMENT",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "DEPARTMENT_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "DEPARTMENT_NAME"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "DEPARTMENT_ORGANIZATION"
+                    }
+                ]
+            },
+            {
+                "name": "Department_Organization",
+                "type": "foreignKey",
+                "table": "CPDBEX_DEPARTMENT",
+                "constraintName": "Department_Organization",
+                "columns": "DEPARTMENT_ORGANIZATION",
+                "referencedTable": "CPDBEX_ORGANIZATION",
+                "referencedColumns": "ORGANIZATION_ID"
+            }
+        ]
+    },
+    "datasource": "DefaultDB"
+}
