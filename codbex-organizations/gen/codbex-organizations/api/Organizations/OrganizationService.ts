@@ -128,6 +128,9 @@ class OrganizationService {
         if (entity.CostCenter?.length > 10) {
             throw new ValidationError(`The 'CostCenter' exceeds the maximum length of [10] characters`);
         }
+        if (entity.Company === null || entity.Company === undefined) {
+            throw new ValidationError(`The 'Company' property is required, provide a valid value`);
+        }
         for (const next of validationModules) {
             next.validate(entity);
         }

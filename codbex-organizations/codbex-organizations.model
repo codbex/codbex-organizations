@@ -42,6 +42,7 @@
                         "dataName": "ORGANIZATION_COMPANY",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
+                        "isRequiredProperty": "true",
                         "name": "Company",
                         "widgetDropDownKey": "Id",
                         "widgetDropDownValue": "Name",
