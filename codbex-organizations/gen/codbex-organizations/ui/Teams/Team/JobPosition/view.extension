@@ -1,0 +1,5 @@
+{
+    "module": "codbex-organizations/gen/codbex-organizations/ui/Teams/Team/JobPosition/view.js",
+    "extensionPoint": "codbex-organizations-view",
+    "description": "codbex-organizations - Application View - Details"
+}

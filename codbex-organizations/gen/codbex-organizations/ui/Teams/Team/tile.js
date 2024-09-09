@@ -6,14 +6,14 @@
 exports.getTile = function () {
     return {
         group: "codbex-organizations",
-        name: "Organization",
-        caption: "Manage entity Organization",
-        tooltip: "Organization",
+        name: "Team",
+        caption: "Manage entity Team",
+        tooltip: "Team",
         type: "PRIMARY",
         report: "false",
         icon: "/services/web/resources/unicons/file.svg",
-        location: "/services/web/codbex-organizations/gen/codbex-organizations/ui/Organizations/index.html",
+        location: "/services/web/codbex-organizations/gen/codbex-organizations/ui/Teams/index.html",
         order: "100",
-        groupOrder: "100",
+        groupOrder: "102",
     };
 };

@@ -1,0 +1,5 @@
+{
+    "module": "codbex-organizations/gen/codbex-organizations/ui/Teams/Team/JobPosition/dialog-window/view.js",
+    "extensionPoint": "codbex-organizations-dialog-window",
+    "description": "codbex-organizations - Application Dialog Window"
+}

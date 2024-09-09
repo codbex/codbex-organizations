@@ -3,70 +3,79 @@ import { producer } from "sdk/messaging";
 import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
 
-export interface DepartmentEntity {
+export interface TeamEntity {
     readonly Id: number;
     Name?: string;
-    Organization?: number;
+    Department?: number;
+    Manager?: string;
 }
 
-export interface DepartmentCreateEntity {
+export interface TeamCreateEntity {
     readonly Name?: string;
-    readonly Organization?: number;
+    readonly Department?: number;
+    readonly Manager?: string;
 }
 
-export interface DepartmentUpdateEntity extends DepartmentCreateEntity {
+export interface TeamUpdateEntity extends TeamCreateEntity {
     readonly Id: number;
 }
 
-export interface DepartmentEntityOptions {
+export interface TeamEntityOptions {
     $filter?: {
         equals?: {
             Id?: number | number[];
             Name?: string | string[];
-            Organization?: number | number[];
+            Department?: number | number[];
+            Manager?: string | string[];
         };
         notEquals?: {
             Id?: number | number[];
             Name?: string | string[];
-            Organization?: number | number[];
+            Department?: number | number[];
+            Manager?: string | string[];
         };
         contains?: {
             Id?: number;
             Name?: string;
-            Organization?: number;
+            Department?: number;
+            Manager?: string;
         };
         greaterThan?: {
             Id?: number;
             Name?: string;
-            Organization?: number;
+            Department?: number;
+            Manager?: string;
         };
         greaterThanOrEqual?: {
             Id?: number;
             Name?: string;
-            Organization?: number;
+            Department?: number;
+            Manager?: string;
         };
         lessThan?: {
             Id?: number;
             Name?: string;
-            Organization?: number;
+            Department?: number;
+            Manager?: string;
         };
         lessThanOrEqual?: {
             Id?: number;
             Name?: string;
-            Organization?: number;
+            Department?: number;
+            Manager?: string;
         };
     },
-    $select?: (keyof DepartmentEntity)[],
-    $sort?: string | (keyof DepartmentEntity)[],
+    $select?: (keyof TeamEntity)[],
+    $sort?: string | (keyof TeamEntity)[],
     $order?: 'asc' | 'desc',
     $offset?: number,
     $limit?: number,
 }
 
-interface DepartmentEntityEvent {
+interface TeamEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
-    readonly entity: Partial<DepartmentEntity>;
+    readonly entity: Partial<TeamEntity>;
     readonly key: {
         name: string;
         column: string;
@@ -74,31 +83,36 @@ interface DepartmentEntityEvent {
     }
 }
 
-interface DepartmentUpdateEntityEvent extends DepartmentEntityEvent {
-    readonly previousEntity: DepartmentEntity;
+interface TeamUpdateEntityEvent extends TeamEntityEvent {
+    readonly previousEntity: TeamEntity;
 }
 
-export class DepartmentRepository {
+export class TeamRepository {
 
     private static readonly DEFINITION = {
-        table: "CODBEX_DEPARTMENT",
+        table: "CODBEX_TEAM",
         properties: [
             {
                 name: "Id",
-                column: "DEPARTMENT_ID",
+                column: "TEAM_ID",
                 type: "INTEGER",
                 id: true,
                 autoIncrement: true,
             },
             {
                 name: "Name",
-                column: "DEPARTMENT_NAME",
+                column: "TEAM_NAME",
                 type: "VARCHAR",
             },
             {
-                name: "Organization",
-                column: "DEPARTMENT_ORGANIZATION",
+                name: "Department",
+                column: "TEAM_DEPARTMENT",
                 type: "INTEGER",
+            },
+            {
+                name: "Manager",
+                column: "TEAM_MANAGER",
+                type: "VARCHAR",
             }
         ]
     };
@@ -106,58 +120,58 @@ export class DepartmentRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(DepartmentRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(TeamRepository.DEFINITION, null, dataSource);
     }
 
-    public findAll(options?: DepartmentEntityOptions): DepartmentEntity[] {
+    public findAll(options?: TeamEntityOptions): TeamEntity[] {
         return this.dao.list(options);
     }
 
-    public findById(id: number): DepartmentEntity | undefined {
+    public findById(id: number): TeamEntity | undefined {
         const entity = this.dao.find(id);
         return entity ?? undefined;
     }
 
-    public create(entity: DepartmentCreateEntity): number {
+    public create(entity: TeamCreateEntity): number {
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
-            table: "CODBEX_DEPARTMENT",
+            table: "CODBEX_TEAM",
             entity: entity,
             key: {
                 name: "Id",
-                column: "DEPARTMENT_ID",
+                column: "TEAM_ID",
                 value: id
             }
         });
         return id;
     }
 
-    public update(entity: DepartmentUpdateEntity): void {
+    public update(entity: TeamUpdateEntity): void {
         const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
-            table: "CODBEX_DEPARTMENT",
+            table: "CODBEX_TEAM",
             entity: entity,
             previousEntity: previousEntity,
             key: {
                 name: "Id",
-                column: "DEPARTMENT_ID",
+                column: "TEAM_ID",
                 value: entity.Id
             }
         });
     }
 
-    public upsert(entity: DepartmentCreateEntity | DepartmentUpdateEntity): number {
-        const id = (entity as DepartmentUpdateEntity).Id;
+    public upsert(entity: TeamCreateEntity | TeamUpdateEntity): number {
+        const id = (entity as TeamUpdateEntity).Id;
         if (!id) {
             return this.create(entity);
         }
 
         const existingEntity = this.findById(id);
         if (existingEntity) {
-            this.update(entity as DepartmentUpdateEntity);
+            this.update(entity as TeamUpdateEntity);
             return id;
         } else {
             return this.create(entity);
@@ -169,22 +183,22 @@ export class DepartmentRepository {
         this.dao.remove(id);
         this.triggerEvent({
             operation: "delete",
-            table: "CODBEX_DEPARTMENT",
+            table: "CODBEX_TEAM",
             entity: entity,
             key: {
                 name: "Id",
-                column: "DEPARTMENT_ID",
+                column: "TEAM_ID",
                 value: id
             }
         });
     }
 
-    public count(options?: DepartmentEntityOptions): number {
+    public count(options?: TeamEntityOptions): number {
         return this.dao.count(options);
     }
 
     public customDataCount(): number {
-        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_DEPARTMENT"');
+        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_TEAM"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
                 return resultSet[0].COUNT;
@@ -195,8 +209,8 @@ export class DepartmentRepository {
         return 0;
     }
 
-    private async triggerEvent(data: DepartmentEntityEvent | DepartmentUpdateEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-organizations-Organizations-Department", ["trigger"]);
+    private async triggerEvent(data: TeamEntityEvent | TeamUpdateEntityEvent) {
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-organizations-Teams-Team", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -204,6 +218,6 @@ export class DepartmentRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-organizations-Organizations-Department").send(JSON.stringify(data));
+        producer.topic("codbex-organizations-Teams-Team").send(JSON.stringify(data));
     }
 }

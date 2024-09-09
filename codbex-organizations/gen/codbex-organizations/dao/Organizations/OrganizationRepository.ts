@@ -90,7 +90,7 @@ interface OrganizationUpdateEntityEvent extends OrganizationEntityEvent {
 export class OrganizationRepository {
 
     private static readonly DEFINITION = {
-        table: "CPDBEX_ORGANIZATION",
+        table: "CODBEX_ORGANIZATION",
         properties: [
             {
                 name: "Id",
@@ -136,7 +136,7 @@ export class OrganizationRepository {
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
-            table: "CPDBEX_ORGANIZATION",
+            table: "CODBEX_ORGANIZATION",
             entity: entity,
             key: {
                 name: "Id",
@@ -152,7 +152,7 @@ export class OrganizationRepository {
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
-            table: "CPDBEX_ORGANIZATION",
+            table: "CODBEX_ORGANIZATION",
             entity: entity,
             previousEntity: previousEntity,
             key: {
@@ -183,7 +183,7 @@ export class OrganizationRepository {
         this.dao.remove(id);
         this.triggerEvent({
             operation: "delete",
-            table: "CPDBEX_ORGANIZATION",
+            table: "CODBEX_ORGANIZATION",
             entity: entity,
             key: {
                 name: "Id",
@@ -198,7 +198,7 @@ export class OrganizationRepository {
     }
 
     public customDataCount(): number {
-        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CPDBEX_ORGANIZATION"');
+        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_ORGANIZATION"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
                 return resultSet[0].COUNT;
