@@ -3,7 +3,7 @@ Organizations Management Module
 
 ### Model
 
-<img width="618" alt="Screenshot 2024-09-09 at 14 24 14" src="https://github.com/user-attachments/assets/ec86f8d9-ba14-41c2-8865-bd70f6d1fa8e">
+<img width="682" alt="Screenshot 2024-09-10 at 18 40 05" src="https://github.com/user-attachments/assets/6eb5c9a9-2a8d-4c6b-bd74-47d50f3e1c75">
 
 ### Application
 
