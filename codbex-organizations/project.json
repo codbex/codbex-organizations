@@ -1,6 +1,13 @@
 {
     "guid": "codbex-organizations",
-    "dependencies": [],
+    "dependencies": [
+        {
+            "guid": "codbex-companies",
+            "type": "git",
+            "url": "https://github.com/codbex/codbex-companies.git",
+            "branch": "main"
+        }
+    ],
     "actions": [
         {
             "name": "Build TypeScript",

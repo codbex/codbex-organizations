@@ -1,0 +1,79 @@
+{
+    "schema": {
+        "structures": [
+            {
+                "name": "CODBEX_ORGANIZATION",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "ORGANIZATION_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 50,
+                        "nullable": true,
+                        "name": "ORGANIZATION_NAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 10,
+                        "nullable": true,
+                        "name": "ORGANIZATION_COSTCENTER"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "ORGANIZATION_COMPANY"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_DEPARTMENT",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "DEPARTMENT_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "DEPARTMENT_NAME"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "DEPARTMENT_ORGANIZATION"
+                    }
+                ]
+            },
+            {
+                "name": "Organization_Company",
+                "type": "foreignKey",
+                "table": "CODBEX_ORGANIZATION",
+                "constraintName": "Organization_Company",
+                "columns": "ORGANIZATION_COMPANY",
+                "referencedTable": "CODBEX_COMPANY",
+                "referencedColumns": "COMPANY_ID"
+            },
+            {
+                "name": "Department_Organization",
+                "type": "foreignKey",
+                "table": "CODBEX_DEPARTMENT",
+                "constraintName": "Department_Organization",
+                "columns": "DEPARTMENT_ORGANIZATION",
+                "referencedTable": "CODBEX_ORGANIZATION",
+                "referencedColumns": "ORGANIZATION_ID"
+            }
+        ]
+    },
+    "datasource": "DefaultDB"
+}
