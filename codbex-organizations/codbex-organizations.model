@@ -16,14 +16,14 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "dataLength": "50",
+                        "dataLength": "100",
                         "dataName": "ORGANIZATION_NAME",
                         "dataNullable": "true",
                         "dataType": "VARCHAR",
                         "isRequiredProperty": "true",
                         "name": "Name",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
+                        "widgetLength": "100",
                         "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
@@ -92,14 +92,14 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "dataLength": "20",
+                        "dataLength": "100",
                         "dataName": "DEPARTMENT_NAME",
                         "dataNullable": "true",
                         "dataType": "VARCHAR",
                         "isRequiredProperty": "true",
                         "name": "Name",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
+                        "widgetLength": "100",
                         "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
