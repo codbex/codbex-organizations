@@ -122,8 +122,8 @@ class OrganizationService {
         if (entity.Name === null || entity.Name === undefined) {
             throw new ValidationError(`The 'Name' property is required, provide a valid value`);
         }
-        if (entity.Name?.length > 50) {
-            throw new ValidationError(`The 'Name' exceeds the maximum length of [50] characters`);
+        if (entity.Name?.length > 100) {
+            throw new ValidationError(`The 'Name' exceeds the maximum length of [100] characters`);
         }
         if (entity.CostCenter?.length > 10) {
             throw new ValidationError(`The 'CostCenter' exceeds the maximum length of [10] characters`);

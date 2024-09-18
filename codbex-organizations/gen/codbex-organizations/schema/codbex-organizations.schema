@@ -14,7 +14,7 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 50,
+                        "length": 100,
                         "nullable": true,
                         "name": "ORGANIZATION_NAME"
                     },
@@ -44,7 +44,7 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 100,
                         "nullable": true,
                         "name": "DEPARTMENT_NAME"
                     },
