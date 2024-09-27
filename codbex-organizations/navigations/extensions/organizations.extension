@@ -1,0 +1,5 @@
+{
+    "extensionPoint": "dashboard-navigations",
+    "module": "codbex-organizations/navigations/services/organizations.js",
+    "description": "Organizations Navigation"
+}
