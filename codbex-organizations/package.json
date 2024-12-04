@@ -9,6 +9,6 @@
         "registry": "https://npm.pkg.github.com"
     },
     "dependencies": {
-        "@codbex/codbex-companies": "0.3.0",
+        "@codbex/codbex-companies": "0.3.0"
     }
 }
