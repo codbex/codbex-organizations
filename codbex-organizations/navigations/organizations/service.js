@@ -1,10 +1,8 @@
 const navigationData = {
     id: 'organizations-navigation',
     label: "Organizations",
-    view: "organizations",
     group: "employees",
-    orderNumber: 1000,
-    lazyLoad: true,
+    order: 100,
     link: "/services/web/codbex-organizations/gen/codbex-organizations/ui/Organizations/index.html?embedded"
 };
 
