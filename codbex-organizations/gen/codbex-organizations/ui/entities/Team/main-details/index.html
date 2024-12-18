@@ -32,7 +32,7 @@
 	                                ng-model="entity.Name"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
-	                                ng-maxlength="100.0 || -1"
+	                                ng-maxlength="50.0 || -1"
 	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter Name">
@@ -44,40 +44,51 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idCostCenter" dg-required="false" dg-colon="true">CostCenter</fd-form-label>
+                        	<fd-form-label for="idManager" dg-required="true" dg-colon="true">Manager</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
-	                        <fd-form-input-message-group dg-inactive="{{ forms.details['CostCenter'].$valid }}">
-	                            <fd-input id="idCostCenter"
-	                                name="CostCenter"
-	                                state="{{ forms.details['CostCenter'].$valid ? '' : 'error' }}"
-									ng-required="false"
-	                                ng-model="entity.CostCenter"
-	                                ng-readonly="action === 'select'"
-	                                ng-minlength="0.0 || 0"
-	                                ng-maxlength="10.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
-	                                type="text"
-	                                placeholder="Enter CostCenter">
-	                            </fd-input>
-	                            <fd-form-message dg-type="error">The value doesn't match the required pattern ''</fd-form-message>
-	                        </fd-form-input-message-group>
+	                        <fd-combobox-input id="idManager"
+	                            name="Manager"
+	                            state="{{ forms.details['Manager'].$valid ? '' : 'error' }}"
+	                            ng-required="true"
+	                            ng-model="entity.Manager"
+	                            dg-disabled="action === 'select'"
+	                            dropdown-items="optionsManager"
+	                            dg-placeholder="Search Manager ...">
+	                        </fd-combobox-input>
 	                        <i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>
 	                    </div>
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idCompany" dg-required="true" dg-colon="true">Company</fd-form-label>
+                        	<fd-form-label for="idOrganization" dg-required="false" dg-colon="true">Organization</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
-	                        <fd-combobox-input id="idCompany"
-	                            name="Company"
-	                            state="{{ forms.details['Company'].$valid ? '' : 'error' }}"
-	                            ng-required="true"
-	                            ng-model="entity.Company"
+	                        <fd-combobox-input id="idOrganization"
+	                            name="Organization"
+	                            state="{{ forms.details['Organization'].$valid ? '' : 'error' }}"
+	                            ng-required="false"
+	                            ng-model="entity.Organization"
 	                            dg-disabled="action === 'select'"
-	                            dropdown-items="optionsCompany"
-	                            dg-placeholder="Search Company ...">
+	                            dropdown-items="optionsOrganization"
+	                            dg-placeholder="Search Organization ...">
+	                        </fd-combobox-input>
+	                        <i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>
+	                    </div>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idDepartment" dg-required="false" dg-colon="true">Department</fd-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--8 ">
+	                        <fd-combobox-input id="idDepartment"
+	                            name="Department"
+	                            state="{{ forms.details['Department'].$valid ? '' : 'error' }}"
+	                            ng-required="false"
+	                            ng-model="entity.Department"
+	                            dg-disabled="action === 'select'"
+	                            dropdown-items="optionsDepartment"
+	                            dg-placeholder="Search Department ...">
 	                        </fd-combobox-input>
 	                        <i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>
 	                    </div>
