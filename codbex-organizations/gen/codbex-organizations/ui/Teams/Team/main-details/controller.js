@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-organizations.Organizations.Organization';
+		messageHubProvider.eventIdPrefix = 'codbex-organizations.Teams.Team';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/OrganizationService.ts";
+		entityApiProvider.baseUrl = "/services/ts/codbex-organizations/gen/codbex-organizations/api/Teams/TeamService.ts";
 	}])
 	.controller('PageController', ['$scope', 'Extensions', 'messageHub', 'entityApi', function ($scope, Extensions, messageHub, entityApi) {
 
@@ -12,15 +12,15 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			details: {},
 		};
 		$scope.formHeaders = {
-			select: "Organization Details",
-			create: "Create Organization",
-			update: "Update Organization"
+			select: "Team Details",
+			create: "Create Team",
+			update: "Update Team"
 		};
 		$scope.action = 'select';
 
 		//-----------------Custom Actions-------------------//
 		Extensions.get('dialogWindow', 'codbex-organizations-custom-action').then(function (response) {
-			$scope.entityActions = response.filter(e => e.perspective === "Organizations" && e.view === "Organization" && e.type === "entity");
+			$scope.entityActions = response.filter(e => e.perspective === "Teams" && e.view === "Team" && e.type === "entity");
 		});
 
 		$scope.triggerEntityAction = function (action) {
@@ -40,7 +40,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHub.onDidReceiveMessage("clearDetails", function (msg) {
 			$scope.$apply(function () {
 				$scope.entity = {};
-				$scope.optionsCompany = [];
+				$scope.optionsManager = [];
+				$scope.optionsOrganization = [];
+				$scope.optionsDepartment = [];
 				$scope.action = 'select';
 			});
 		});
@@ -48,7 +50,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHub.onDidReceiveMessage("entitySelected", function (msg) {
 			$scope.$apply(function () {
 				$scope.entity = msg.data.entity;
-				$scope.optionsCompany = msg.data.optionsCompany;
+				$scope.optionsManager = msg.data.optionsManager;
+				$scope.optionsOrganization = msg.data.optionsOrganization;
+				$scope.optionsDepartment = msg.data.optionsDepartment;
 				$scope.action = 'select';
 			});
 		});
@@ -56,7 +60,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHub.onDidReceiveMessage("createEntity", function (msg) {
 			$scope.$apply(function () {
 				$scope.entity = {};
-				$scope.optionsCompany = msg.data.optionsCompany;
+				$scope.optionsManager = msg.data.optionsManager;
+				$scope.optionsOrganization = msg.data.optionsOrganization;
+				$scope.optionsDepartment = msg.data.optionsDepartment;
 				$scope.action = 'create';
 			});
 		});
@@ -64,36 +70,40 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHub.onDidReceiveMessage("updateEntity", function (msg) {
 			$scope.$apply(function () {
 				$scope.entity = msg.data.entity;
-				$scope.optionsCompany = msg.data.optionsCompany;
+				$scope.optionsManager = msg.data.optionsManager;
+				$scope.optionsOrganization = msg.data.optionsOrganization;
+				$scope.optionsDepartment = msg.data.optionsDepartment;
 				$scope.action = 'update';
 			});
 		});
 
-		$scope.serviceCompany = "/services/ts/codbex-companies/gen/codbex-companies/api/Companies/CompanyService.ts";
+		$scope.serviceManager = "/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts";
+		$scope.serviceOrganization = "/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/OrganizationService.ts";
+		$scope.serviceDepartment = "/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/DepartmentService.ts";
 
 		//-----------------Events-------------------//
 
 		$scope.create = function () {
 			entityApi.create($scope.entity).then(function (response) {
 				if (response.status != 201) {
-					messageHub.showAlertError("Organization", `Unable to create Organization: '${response.message}'`);
+					messageHub.showAlertError("Team", `Unable to create Team: '${response.message}'`);
 					return;
 				}
 				messageHub.postMessage("entityCreated", response.data);
 				messageHub.postMessage("clearDetails", response.data);
-				messageHub.showAlertSuccess("Organization", "Organization successfully created");
+				messageHub.showAlertSuccess("Team", "Team successfully created");
 			});
 		};
 
 		$scope.update = function () {
 			entityApi.update($scope.entity.Id, $scope.entity).then(function (response) {
 				if (response.status != 200) {
-					messageHub.showAlertError("Organization", `Unable to update Organization: '${response.message}'`);
+					messageHub.showAlertError("Team", `Unable to update Team: '${response.message}'`);
 					return;
 				}
 				messageHub.postMessage("entityUpdated", response.data);
 				messageHub.postMessage("clearDetails", response.data);
-				messageHub.showAlertSuccess("Organization", "Organization successfully updated");
+				messageHub.showAlertSuccess("Team", "Team successfully updated");
 			});
 		};
 

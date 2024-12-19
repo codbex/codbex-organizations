@@ -56,6 +56,40 @@
                 ]
             },
             {
+                "name": "CODBEX_TEAM",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "TEAM_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 50,
+                        "nullable": true,
+                        "name": "TEAM_NAME"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "TEAM_MANAGER"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "TEAM_ORGANIZATION"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "TEAM_DEPARTMENT"
+                    }
+                ]
+            },
+            {
                 "name": "Organization_Company",
                 "type": "foreignKey",
                 "table": "CODBEX_ORGANIZATION",
@@ -72,6 +106,33 @@
                 "columns": "DEPARTMENT_ORGANIZATION",
                 "referencedTable": "CODBEX_ORGANIZATION",
                 "referencedColumns": "ORGANIZATION_ID"
+            },
+            {
+                "name": "Team_Employee",
+                "type": "foreignKey",
+                "table": "CODBEX_TEAM",
+                "constraintName": "Team_Employee",
+                "columns": "TEAM_MANAGER",
+                "referencedTable": "CODBEX_EMPLOYEE",
+                "referencedColumns": "EMPLOYEE_ID"
+            },
+            {
+                "name": "Team_Organization",
+                "type": "foreignKey",
+                "table": "CODBEX_TEAM",
+                "constraintName": "Team_Organization",
+                "columns": "TEAM_ORGANIZATION",
+                "referencedTable": "CODBEX_ORGANIZATION",
+                "referencedColumns": "ORGANIZATION_ID"
+            },
+            {
+                "name": "Team_Department",
+                "type": "foreignKey",
+                "table": "CODBEX_TEAM",
+                "constraintName": "Team_Department",
+                "columns": "TEAM_DEPARTMENT",
+                "referencedTable": "CODBEX_DEPARTMENT",
+                "referencedColumns": "DEPARTMENT_ID"
             }
         ]
     },
