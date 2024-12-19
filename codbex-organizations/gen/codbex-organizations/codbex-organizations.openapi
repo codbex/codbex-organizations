@@ -11,7 +11,7 @@ servers:
 tags:
   - name: Organizations
   - name: Organizations
-  - name: entities
+  - name: Teams
 paths:
   /codbex-organizations/gen/codbex-organizations/api/Organizations/OrganizationService.ts:
     get:
@@ -817,7 +817,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-organizations/gen/codbex-organizations/api/entities/TeamService.ts:
+  /codbex-organizations/gen/codbex-organizations/api/Teams/TeamService.ts:
     get:
       summary: List Team
       parameters:
@@ -838,7 +838,7 @@ paths:
             type: integer
             allowEmptyValue: true
       tags:
-        - entities
+        - Teams
       responses:
         200:
           description: Successful Request
@@ -869,7 +869,7 @@ paths:
     post:
       summary: Create Team
       tags:
-        - entities
+        - Teams
       requestBody:
         content:
           application/json:
@@ -901,7 +901,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-organizations/gen/codbex-organizations/api/entities/TeamService.ts/{id}:
+  /codbex-organizations/gen/codbex-organizations/api/Teams/TeamService.ts/{id}:
     get:
       summary: Get Team by Id
       parameters:
@@ -912,7 +912,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Teams
       responses:
         200:
           description: Successful Request
@@ -950,7 +950,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Teams
       requestBody:
         content:
           application/json:
@@ -998,7 +998,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Teams
       responses:
         204:
           description: Successful Request
@@ -1020,11 +1020,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-organizations/gen/codbex-organizations/api/entities/TeamService.ts/count:
+  /codbex-organizations/gen/codbex-organizations/api/Teams/TeamService.ts/count:
     get:
       summary: Count the number of Team
       tags:
-        - entities
+        - Teams
       responses:
         200:
           description: Successful Request
@@ -1048,7 +1048,7 @@ paths:
     post:
       summary: Count the number of Team by TeamFilterOptions
       tags:
-        - entities
+        - Teams
       requestBody:
         content:
           application/json:
@@ -1130,11 +1130,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-organizations/gen/codbex-organizations/api/entities/TeamService.ts/search:
+  /codbex-organizations/gen/codbex-organizations/api/Teams/TeamService.ts/search:
     post:
       summary: Search Team by TeamFilterOptions
       tags:
-        - entities
+        - Teams
       requestBody:
         content:
           application/json:

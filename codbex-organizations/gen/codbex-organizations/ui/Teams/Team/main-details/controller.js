@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-organizations.entities.Team';
+		messageHubProvider.eventIdPrefix = 'codbex-organizations.Teams.Team';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-organizations/gen/codbex-organizations/api/entities/TeamService.ts";
+		entityApiProvider.baseUrl = "/services/ts/codbex-organizations/gen/codbex-organizations/api/Teams/TeamService.ts";
 	}])
 	.controller('PageController', ['$scope', 'Extensions', 'messageHub', 'entityApi', function ($scope, Extensions, messageHub, entityApi) {
 
@@ -20,7 +20,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		//-----------------Custom Actions-------------------//
 		Extensions.get('dialogWindow', 'codbex-organizations-custom-action').then(function (response) {
-			$scope.entityActions = response.filter(e => e.perspective === "entities" && e.view === "Team" && e.type === "entity");
+			$scope.entityActions = response.filter(e => e.perspective === "Teams" && e.view === "Team" && e.type === "entity");
 		});
 
 		$scope.triggerEntityAction = function (action) {

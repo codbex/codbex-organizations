@@ -52,7 +52,7 @@
       "icon": "/services/web/resources/unicons/university.svg",
       "role": ""
     },
-    "entities": {
+    "Teams": {
       "views": [
         "Team",
         "Team-details",
@@ -75,10 +75,10 @@
         "Team-details",
         "Team-details"
       ],
-      "name": "entities",
-      "label": "entities",
-      "order": "100",
-      "icon": "/services/web/resources/unicons/copy.svg",
+      "name": "Teams",
+      "label": "Teams",
+      "order": "106",
+      "icon": "/services/web/resources/unicons/user.svg",
       "role": ""
     },
     "Employees": {
@@ -911,10 +911,10 @@
       "menuLabel": "Team",
       "name": "Team",
       "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-      "perspectiveLabel": "Entities",
-      "perspectiveName": "entities",
-      "perspectiveOrder": "100",
+      "perspectiveIcon": "/services/web/resources/unicons/user.svg",
+      "perspectiveLabel": "Teams",
+      "perspectiveName": "Teams",
+      "perspectiveOrder": "106",
       "perspectiveRole": "",
       "title": "Team",
       "tooltip": "Team",

@@ -4,11 +4,11 @@
  * Do not modify the content as it may be re-generated again.
  */
 const perspectiveData = {
-	id: 'entities',
-	name: 'Entities',
-	link: '/services/web/codbex-organizations/gen/codbex-organizations/ui/entities/index.html',
-	order: 100,
-	icon: '/services/web/resources/unicons/copy.svg',
+	id: 'Teams',
+	name: 'Teams',
+	link: '/services/web/codbex-organizations/gen/codbex-organizations/ui/Teams/index.html',
+	order: 106,
+	icon: '/services/web/resources/unicons/user.svg',
 };
 
 if (typeof exports !== 'undefined') {

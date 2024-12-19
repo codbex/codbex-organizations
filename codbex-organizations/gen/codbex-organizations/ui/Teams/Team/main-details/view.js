@@ -4,12 +4,12 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "Team",
+    id: "Team-details",
     label: "Team",
     factory: "frame",
-    region: "left",
-    link: "/services/web/codbex-organizations/gen/codbex-organizations/ui/entities/Team/index.html",
-    perspectiveName: "entities",
+    region: "center",
+    link: "/services/web/codbex-organizations/gen/codbex-organizations/ui/Teams/Team/main-details/index.html",
+    perspectiveName: "Teams",
 };
 
 if (typeof exports !== 'undefined') {

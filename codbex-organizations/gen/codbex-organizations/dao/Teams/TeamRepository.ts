@@ -224,7 +224,7 @@ export class TeamRepository {
     }
 
     private async triggerEvent(data: TeamEntityEvent | TeamUpdateEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-organizations-entities-Team", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-organizations-Teams-Team", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -232,6 +232,6 @@ export class TeamRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-organizations-entities-Team").send(JSON.stringify(data));
+        producer.topic("codbex-organizations-Teams-Team").send(JSON.stringify(data));
     }
 }

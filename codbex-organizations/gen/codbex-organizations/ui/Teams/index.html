@@ -65,7 +65,7 @@
                     };
                     Extensions.get('view', 'codbex-organizations-view').then(function (response) {
                         $scope.layoutModel = {
-                            views: response.filter(e => !e.isLaunchpad && e.perspectiveName === 'entities').map(e => e.id)
+                            views: response.filter(e => !e.isLaunchpad && e.perspectiveName === 'Teams').map(e => e.id)
                         };
                         $scope.state.isBusy = false;
                     }, function (error) {

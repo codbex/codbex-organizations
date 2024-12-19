@@ -6,8 +6,8 @@
 const viewData = {
     id: "Team-filter",
     label: "Team Filter",
-    link: "/services/web/codbex-organizations/gen/codbex-organizations/ui/entities/Team/dialog-filter/index.html",
-    perspectiveName: "entities",
+    link: "/services/web/codbex-organizations/gen/codbex-organizations/ui/Teams/Team/dialog-filter/index.html",
+    perspectiveName: "Teams",
 };
 
 if (typeof exports !== 'undefined') {
