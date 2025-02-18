@@ -34,6 +34,10 @@
         "Organization-details",
         "Organization-details",
         "Organization-details",
+        "Organization-details",
+        "Organization-details",
+        "Organization-details",
+        "Organization-details",
         "Organization-details"
       ],
       "name": "Organizations",
@@ -55,6 +59,10 @@
     "Teams": {
       "views": [
         "Team",
+        "Team-details",
+        "Team-details",
+        "Team-details",
+        "Team-details",
         "Team-details",
         "Team-details",
         "Team-details",
