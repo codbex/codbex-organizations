@@ -5,7 +5,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["entityApiProvider", function (entityApiProvider) {
 		entityApiProvider.baseUrl = "/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/OrganizationService.ts";
 	}])
-	.controller('PageController', ['$scope', 'Extensions', 'messageHub', 'entityApi', function ($scope, Extensions, messageHub, entityApi) {
+	.controller('PageController', ['$scope',  '$http', 'Extensions', 'messageHub', 'entityApi', function ($scope,  $http, Extensions, messageHub, entityApi) {
 
 		$scope.entity = {};
 		$scope.forms = {
@@ -100,5 +100,35 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.cancel = function () {
 			messageHub.postMessage("clearDetails");
 		};
+		
+		//-----------------Dialogs-------------------//
+		
+		$scope.createCompany = function () {
+			messageHub.showDialogWindow("Company-details", {
+				action: "create",
+				entity: {},
+			}, null, false);
+		};
+
+		//-----------------Dialogs-------------------//
+
+
+
+		//----------------Dropdowns-----------------//
+
+		$scope.refreshCompany = function () {
+			$scope.optionsCompany = [];
+			$http.get("/services/ts/codbex-companies/gen/codbex-companies/api/Companies/CompanyService.ts").then(function (response) {
+				$scope.optionsCompany = response.data.map(e => {
+					return {
+						value: e.Id,
+						text: e.Name
+					}
+				});
+			});
+		};
+
+		//----------------Dropdowns-----------------//	
+		
 
 	}]);

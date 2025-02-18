@@ -5,7 +5,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["entityApiProvider", function (entityApiProvider) {
 		entityApiProvider.baseUrl = "/services/ts/codbex-organizations/gen/codbex-organizations/api/Teams/TeamService.ts";
 	}])
-	.controller('PageController', ['$scope', 'Extensions', 'messageHub', 'entityApi', function ($scope, Extensions, messageHub, entityApi) {
+	.controller('PageController', ['$scope',  '$http', 'Extensions', 'messageHub', 'entityApi', function ($scope,  $http, Extensions, messageHub, entityApi) {
 
 		$scope.entity = {};
 		$scope.forms = {
@@ -81,6 +81,35 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.serviceOrganization = "/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/OrganizationService.ts";
 		$scope.serviceDepartment = "/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/DepartmentService.ts";
 
+
+		$scope.$watch('entity.Organization', function (newValue, oldValue) {
+			if (newValue !== undefined && newValue !== null) {
+				entityApi.$http.get($scope.serviceOrganization + '/' + newValue).then(function (response) {
+					let valueFrom = response.data.Id;
+					entityApi.$http.post("/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/DepartmentService.ts/search", {
+						$filter: {
+							equals: {
+								Organization: valueFrom
+							}
+						}
+					}).then(function (response) {
+						$scope.optionsDepartment = response.data.map(e => {
+							return {
+								value: e.Id,
+								text: e.Name
+							}
+						});
+						if ($scope.action !== 'select' && newValue !== oldValue) {
+							if ($scope.optionsDepartment.length == 1) {
+								$scope.entity.Department = $scope.optionsDepartment[0].value;
+							} else {
+								$scope.entity.Department = undefined;
+							}
+						}
+					});
+				});
+			}
+		});
 		//-----------------Events-------------------//
 
 		$scope.create = function () {
@@ -110,5 +139,69 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.cancel = function () {
 			messageHub.postMessage("clearDetails");
 		};
+		
+		//-----------------Dialogs-------------------//
+		
+		$scope.createManager = function () {
+			messageHub.showDialogWindow("Employee-details", {
+				action: "create",
+				entity: {},
+			}, null, false);
+		};
+		$scope.createOrganization = function () {
+			messageHub.showDialogWindow("Organization-details", {
+				action: "create",
+				entity: {},
+			}, null, false);
+		};
+		$scope.createDepartment = function () {
+			messageHub.showDialogWindow("Department-details", {
+				action: "create",
+				entity: {},
+			}, null, false);
+		};
+
+		//-----------------Dialogs-------------------//
+
+
+
+		//----------------Dropdowns-----------------//
+
+		$scope.refreshManager = function () {
+			$scope.optionsManager = [];
+			$http.get("/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts").then(function (response) {
+				$scope.optionsManager = response.data.map(e => {
+					return {
+						value: e.Id,
+						text: e.Name
+					}
+				});
+			});
+		};
+		$scope.refreshOrganization = function () {
+			$scope.optionsOrganization = [];
+			$http.get("/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/OrganizationService.ts").then(function (response) {
+				$scope.optionsOrganization = response.data.map(e => {
+					return {
+						value: e.Id,
+						text: e.Name
+					}
+				});
+			});
+		};
+		$scope.refreshDepartment = function () {
+			$scope.optionsDepartment = [];
+			$http.get("/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/DepartmentService.ts").then(function (response) {
+				$scope.optionsDepartment = response.data.map(e => {
+					return {
+						value: e.Id,
+						text: e.Name
+					}
+				});
+			});
+		};
+
+		//----------------Dropdowns-----------------//	
+		
 
 	}]);
