@@ -9,12 +9,12 @@ Organizations Management Module
 
  #### Launchpad
 
-![model](images/organizations-launchpad.png)
+![launchpad](images/organizations-launchpad.png)
 
  #### Management
 
-![model](images/organizations-management.png)
+![management](images/organizations-management.png)
 
-![model](images/teams-management.png)
+![management](images/teams-management.png)
 
 
