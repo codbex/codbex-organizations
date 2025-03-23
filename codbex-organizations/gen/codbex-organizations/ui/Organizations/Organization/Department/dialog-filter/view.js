@@ -7,7 +7,7 @@ const viewData = {
     id: "Department-filter",
     label: "Department Filter",
     link: "/services/web/codbex-organizations/gen/codbex-organizations/ui/Organizations/Organization/Department/dialog-filter/index.html",
-    perspectiveName: "Organizations",
+    perspectiveName: "Organizations"
 };
 
 if (typeof exports !== 'undefined') {

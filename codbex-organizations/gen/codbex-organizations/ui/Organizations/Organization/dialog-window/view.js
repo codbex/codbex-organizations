@@ -8,6 +8,9 @@ const viewData = {
     label: "Organization",
     link: "/services/web/codbex-organizations/gen/codbex-organizations/ui/Organizations/Organization/dialog-window/index.html",
     perspectiveName: "Organizations",
+    roles: [
+        "codbex-organizations.Organizations.OrganizationReadOnly",
+    ]
 };
 
 if (typeof exports !== 'undefined') {

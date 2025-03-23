@@ -100,6 +100,23 @@
       "role": ""
     }
   },
+  "roles": [
+    {
+      "entityName": "Organization",
+      "roleRead": "codbex-organizations.Organizations.OrganizationReadOnly",
+      "roleWrite": "codbex-organizations.Organizations.OrganizationFullAccess"
+    },
+    {
+      "entityName": "Department",
+      "roleRead": "codbex-organizations.Organizations.DepartmentReadOnly",
+      "roleWrite": "codbex-organizations.Organizations.DepartmentFullAccess"
+    },
+    {
+      "entityName": "Team",
+      "roleRead": "codbex-organizations.Teams.TeamReadOnly",
+      "roleWrite": "codbex-organizations.Teams.TeamFullAccess"
+    }
+  ],
   "models": [
     {
       "properties": [
@@ -213,6 +230,7 @@
       "dataName": "ORGANIZATION",
       "dataQuery": "",
       "description": "Manage entity Organization",
+      "generateDefaultRoles": "true",
       "generateReport": "false",
       "icon": "/services/web/resources/unicons/file.svg",
       "layoutType": "MANAGE_MASTER",
@@ -226,6 +244,8 @@
       "perspectiveName": "Organizations",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
+      "roleRead": "codbex-organizations.Organizations.OrganizationReadOnly",
+      "roleWrite": "codbex-organizations.Organizations.OrganizationFullAccess",
       "title": "Organization",
       "tooltip": "Organization",
       "type": "PRIMARY",
@@ -416,6 +436,7 @@
       "dataName": "DEPARTMENT",
       "dataQuery": "",
       "description": "Manage entity Department",
+      "generateDefaultRoles": "true",
       "generateReport": "false",
       "icon": "/services/web/resources/unicons/file.svg",
       "layoutType": "MANAGE_DETAILS",
@@ -429,6 +450,8 @@
       "perspectiveName": "Organizations",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
+      "roleRead": "codbex-organizations.Organizations.DepartmentReadOnly",
+      "roleWrite": "codbex-organizations.Organizations.DepartmentFullAccess",
       "title": "Department",
       "tooltip": "Department",
       "type": "DEPENDENT",
@@ -737,6 +760,7 @@
       "dataName": "COMPANY",
       "dataQuery": "",
       "description": "Manage entity Company",
+      "generateDefaultRoles": "false",
       "generateReport": "false",
       "icon": "/services/web/resources/unicons/file.svg",
       "layoutType": "MANAGE",
@@ -911,6 +935,7 @@
       "dataName": "TEAM",
       "dataQuery": "",
       "description": "Manage entity Team",
+      "generateDefaultRoles": "true",
       "generateReport": "false",
       "icon": "/services/web/resources/unicons/file.svg",
       "layoutType": "MANAGE_MASTER",
@@ -924,6 +949,8 @@
       "perspectiveName": "Teams",
       "perspectiveOrder": "106",
       "perspectiveRole": "",
+      "roleRead": "codbex-organizations.Teams.TeamReadOnly",
+      "roleWrite": "codbex-organizations.Teams.TeamFullAccess",
       "title": "Team",
       "tooltip": "Team",
       "type": "PRIMARY",
@@ -1361,6 +1388,7 @@
       "dataName": "EMPLOYEE",
       "dataQuery": "",
       "description": "Manage entity Employee",
+      "generateDefaultRoles": "false",
       "generateReport": "false",
       "icon": "/services/web/resources/unicons/file.svg",
       "layoutType": "MANAGE",

@@ -1,1 +1,6 @@
-{"module":"codbex-organizations/gen/codbex-organizations/ui/Organizations/Organization/tile.js","extensionPoint":"codbex-organizations-tile","description":"codbex-organizations - Application Tile"}
+{
+    "module": "codbex-organizations/gen/codbex-organizations/ui/Organizations/Organization/tile.js",
+    "extensionPoint": "codbex-organizations-tile",
+    "description": "codbex-organizations - Application Tile",
+    "role": "codbex-organizations.Organizations.OrganizationReadOnly,codbex-organizations.Organizations.OrganizationFullAccess"
+}
