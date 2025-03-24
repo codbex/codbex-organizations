@@ -8,6 +8,9 @@ const viewData = {
     label: "Team",
     link: "/services/web/codbex-organizations/gen/codbex-organizations/ui/Teams/Team/dialog-window/index.html",
     perspectiveName: "Teams",
+    roles: [
+        "codbex-organizations.Teams.TeamReadOnly",
+    ]
 };
 
 if (typeof exports !== 'undefined') {

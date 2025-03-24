@@ -1,1 +1,6 @@
-{"module":"codbex-organizations/gen/codbex-organizations/ui/Organizations/Organization/dialog-window/view.js","extensionPoint":"dialog-window","description":"codbex-organizations - Application Dialog Window"}
+{
+    "module": "{{projectName}}/gen/{{genFolderName}}/ui/{{perspectiveName}}/{{name}}/dialog-window/view.js",
+    "extensionPoint": "dialog-window",
+    "description": "{{projectName}} - Application Dialog Window",
+    "role": "codbex-organizations.Organizations.OrganizationReadOnly,codbex-organizations.Organizations.OrganizationFullAccess"
+}

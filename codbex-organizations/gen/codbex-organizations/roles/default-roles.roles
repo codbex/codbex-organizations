@@ -1,0 +1,26 @@
+[
+    {
+        "name": "codbex-organizations.Organizations.OrganizationReadOnly",
+        "description": "A role that grants read only permission for Organization."
+    },
+    {
+        "name": "codbex-organizations.Organizations.OrganizationFullAccess",
+        "description": "A role that grants full access for Organization."
+    },
+    {
+        "name": "codbex-organizations.Organizations.DepartmentReadOnly",
+        "description": "A role that grants read only permission for Department."
+    },
+    {
+        "name": "codbex-organizations.Organizations.DepartmentFullAccess",
+        "description": "A role that grants full access for Department."
+    },
+    {
+        "name": "codbex-organizations.Teams.TeamReadOnly",
+        "description": "A role that grants read only permission for Team."
+    },
+    {
+        "name": "codbex-organizations.Teams.TeamFullAccess",
+        "description": "A role that grants full access for Team."
+    }
+]
