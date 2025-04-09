@@ -6,15 +6,12 @@
 const viewData = {
     id: "Team-details",
     label: "Team",
-    link: "/services/web/codbex-organizations/gen/codbex-organizations/ui/Teams/Team/dialog-window/index.html",
+    path: "/services/web/codbex-organizations/gen/codbex-organizations/ui/Teams/Team/dialog-window/index.html",
     perspectiveName: "Teams",
     roles: [
         "codbex-organizations.Teams.TeamReadOnly",
     ]
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

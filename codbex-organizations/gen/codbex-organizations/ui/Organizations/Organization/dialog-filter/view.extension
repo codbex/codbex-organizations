@@ -1,6 +1,0 @@
-{
-    "module": "codbex-organizations/gen/codbex-organizations/ui/Organizations/Organization/dialog-filter/view.js",
-    "extensionPoint": "dialog-window",
-    "description": "codbex-organizations - Application Dialog Window",
-    "role": "codbex-organizations.Organizations.OrganizationReadOnly,codbex-organizations.Organizations.OrganizationFullAccess"
-}

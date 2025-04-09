@@ -1,6 +1,0 @@
-{
-    "extensionPoint": "dashboard-navigations",
-    "module": "codbex-organizations/navigations/organizations/service.js",
-    "description": "Organizations Navigation",
-    "role": "codbex-organizations.Organizations.OrganizationReadOnly,codbex-organizations.Organizations.OrganizationFullAccess"
-}

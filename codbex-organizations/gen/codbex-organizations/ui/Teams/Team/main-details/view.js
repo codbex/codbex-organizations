@@ -4,16 +4,14 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "Team-details",
-    label: "Team",
-    factory: "frame",
-    region: "center",
-    link: "/services/web/codbex-organizations/gen/codbex-organizations/ui/Teams/Team/main-details/index.html",
-    perspectiveName: "Teams"
+    id: 'Team-details',
+    label: 'Team',
+    region: 'center',
+    lazyLoad: false,
+	autoFocusTab: true,
+    path: '/services/web/codbex-organizations/gen/codbex-organizations/ui/Teams/Team/main-details/index.html',
+    perspectiveName: 'Teams'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getView = function () {
-        return viewData;
-    }
+	exports.getView = () => viewData;
 }

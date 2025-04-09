@@ -1,6 +1,6 @@
 {
     "module": "codbex-organizations/gen/codbex-organizations/ui/Teams/Team/view.js",
-    "extensionPoint": "codbex-organizations-view",
+    "extensionPoint": "application-views",
     "description": "codbex-organizations - Application View",
     "role": "codbex-organizations.Teams.TeamReadOnly,codbex-organizations.Teams.TeamFullAccess"
 }
