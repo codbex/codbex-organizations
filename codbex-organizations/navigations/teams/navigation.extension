@@ -1,6 +1,0 @@
-{
-    "extensionPoint": "dashboard-navigations",
-    "module": "codbex-organizations/navigations/teams/service.js",
-    "description": "Jobs Navigation",
-    "role": "codbex-organizations.Teams.TeamReadOnly,codbex-organizations.Teams.TeamFullAccess"
-}

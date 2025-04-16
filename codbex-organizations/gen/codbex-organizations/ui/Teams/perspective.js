@@ -5,14 +5,12 @@
  */
 const perspectiveData = {
 	id: 'Teams',
-	name: 'Teams',
-	link: '/services/web/codbex-organizations/gen/codbex-organizations/ui/Teams/index.html',
-	order: '106',
+	label: 'Teams',
+	path: '/services/web/codbex-organizations/gen/codbex-organizations/ui/Teams/index.html',
+	groupId: 'company-navigation-group',
+	order: 300,
 	icon: '/services/web/resources/unicons/user.svg'
 };
-
 if (typeof exports !== 'undefined') {
-	exports.getPerspective = function () {
-		return perspectiveData;
-	}
+	exports.getPerspective = () => perspectiveData;
 }

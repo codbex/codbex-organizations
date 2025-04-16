@@ -1,0 +1,5 @@
+{
+    "module": "codbex-organizations/gen/codbex-organizations/ui/organizations/perspective.js",
+    "extensionPoint": "application-perspectives",
+    "description": "codbex-organizations - Perspective - organizations"
+}

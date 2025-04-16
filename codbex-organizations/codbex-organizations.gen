@@ -7,12 +7,29 @@
   "fileName": "codbex-organizations",
   "genFolderName": "codbex-organizations",
   "dataSource": "DefaultDB",
+  "roles": [
+    {
+      "entityName": "Organization",
+      "roleRead": "codbex-organizations.Organizations.OrganizationReadOnly",
+      "roleWrite": "codbex-organizations.Organizations.OrganizationFullAccess"
+    },
+    {
+      "entityName": "Department",
+      "roleRead": "codbex-organizations.Organizations.DepartmentReadOnly",
+      "roleWrite": "codbex-organizations.Organizations.DepartmentFullAccess"
+    },
+    {
+      "entityName": "Team",
+      "roleRead": "codbex-organizations.Teams.TeamReadOnly",
+      "roleWrite": "codbex-organizations.Teams.TeamFullAccess"
+    }
+  ],
   "projectName": "codbex-organizations",
   "workspaceName": "workspace",
   "filePath": "codbex-organizations.model",
   "templateId": "template-application-angular/template/template.js",
   "perspectives": {
-    "Organizations": {
+    "organizations": {
       "views": [
         "Organization",
         "Department",
@@ -34,16 +51,14 @@
         "Organization-details",
         "Organization-details",
         "Organization-details",
-        "Organization-details",
-        "Organization-details",
-        "Organization-details",
-        "Organization-details",
         "Organization-details"
       ],
-      "name": "Organizations",
-      "label": "Organizations",
+      "name": "organizations",
+      "label": "organizations",
+      "header": "",
       "order": "100",
-      "icon": "/services/web/resources/unicons/copy.svg",
+      "navId": "company-navigation-group",
+      "icon": "/services/web/resources/unicons/adjust.svg",
       "role": ""
     },
     "Companies": {
@@ -52,7 +67,9 @@
       ],
       "name": "Companies",
       "label": "Companies",
+      "header": "",
       "order": "100",
+      "navId": "",
       "icon": "/services/web/resources/unicons/university.svg",
       "role": ""
     },
@@ -77,15 +94,13 @@
         "Team-details",
         "Team-details",
         "Team-details",
-        "Team-details",
-        "Team-details",
-        "Team-details",
-        "Team-details",
         "Team-details"
       ],
       "name": "Teams",
       "label": "Teams",
-      "order": "106",
+      "header": "",
+      "order": "300",
+      "navId": "company-navigation-group",
       "icon": "/services/web/resources/unicons/user.svg",
       "role": ""
     },
@@ -95,28 +110,13 @@
       ],
       "name": "Employees",
       "label": "Employees",
+      "header": "",
       "order": "100",
+      "navId": "",
       "icon": "/services/web/resources/unicons/copy.svg",
       "role": ""
     }
   },
-  "roles": [
-    {
-      "entityName": "Organization",
-      "roleRead": "codbex-organizations.Organizations.OrganizationReadOnly",
-      "roleWrite": "codbex-organizations.Organizations.OrganizationFullAccess"
-    },
-    {
-      "entityName": "Department",
-      "roleRead": "codbex-organizations.Organizations.DepartmentReadOnly",
-      "roleWrite": "codbex-organizations.Organizations.DepartmentFullAccess"
-    },
-    {
-      "entityName": "Team",
-      "roleRead": "codbex-organizations.Teams.TeamReadOnly",
-      "roleWrite": "codbex-organizations.Teams.TeamFullAccess"
-    }
-  ],
   "models": [
     {
       "properties": [
@@ -230,6 +230,8 @@
       "dataName": "ORGANIZATION",
       "dataQuery": "",
       "description": "Manage entity Organization",
+      "feedPassword": "YWRtaW4=",
+      "feedUsername": "YWRtaW4=",
       "generateDefaultRoles": "true",
       "generateReport": "false",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -238,10 +240,11 @@
       "menuKey": "organization",
       "menuLabel": "Organization",
       "name": "Organization",
-      "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-      "perspectiveLabel": "Entities",
-      "perspectiveName": "Organizations",
+      "perspectiveHeader": "",
+      "perspectiveIcon": "/services/web/resources/unicons/adjust.svg",
+      "perspectiveLabel": "Organizations",
+      "perspectiveName": "organizations",
+      "perspectiveNavId": "company-navigation-group",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
       "roleRead": "codbex-organizations.Organizations.OrganizationReadOnly",
@@ -417,7 +420,7 @@
           "widgetSize": "",
           "widgetType": "DROPDOWN",
           "relationshipEntityName": "Organization",
-          "relationshipEntityPerspectiveName": "Organizations",
+          "relationshipEntityPerspectiveName": "organizations",
           "relationshipEntityPerspectiveLabel": "Entities",
           "dataNotNull": false,
           "dataAutoIncrement": false,
@@ -425,7 +428,7 @@
           "dataUnique": false,
           "isCalculatedProperty": false,
           "widgetLabel": "Organization",
-          "widgetDropdownUrl": "/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/OrganizationService.ts",
+          "widgetDropdownUrl": "/services/ts/codbex-organizations/gen/codbex-organizations/api/organizations/OrganizationService.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -436,6 +439,8 @@
       "dataName": "DEPARTMENT",
       "dataQuery": "",
       "description": "Manage entity Department",
+      "feedPassword": "YWRtaW4=",
+      "feedUsername": "YWRtaW4=",
       "generateDefaultRoles": "true",
       "generateReport": "false",
       "icon": "/services/web/resources/unicons/file.svg",
@@ -444,10 +449,11 @@
       "menuKey": "department",
       "menuLabel": "Department",
       "name": "Department",
-      "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-      "perspectiveLabel": "Entities",
-      "perspectiveName": "Organizations",
+      "perspectiveHeader": "",
+      "perspectiveIcon": "/services/web/resources/unicons/adjust.svg",
+      "perspectiveLabel": "Organizations",
+      "perspectiveName": "organizations",
+      "perspectiveNavId": "company-navigation-group",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
       "roleRead": "codbex-organizations.Organizations.DepartmentReadOnly",
@@ -768,10 +774,11 @@
       "menuKey": "company",
       "menuLabel": "Company",
       "name": "Company",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/university.svg",
       "perspectiveLabel": "Companies",
       "perspectiveName": "Companies",
+      "perspectiveNavId": "",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
       "projectionReferencedEntity": "Company",
@@ -882,7 +889,7 @@
           "widgetType": "DROPDOWN",
           "relationshipName": "Team_Organization",
           "relationshipEntityName": "Organization",
-          "relationshipEntityPerspectiveName": "Organizations",
+          "relationshipEntityPerspectiveName": "organizations",
           "relationshipEntityPerspectiveLabel": "Entities",
           "dataNotNull": false,
           "dataAutoIncrement": false,
@@ -891,7 +898,7 @@
           "isRequiredProperty": false,
           "isCalculatedProperty": false,
           "widgetLabel": "Organization",
-          "widgetDropdownUrl": "/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/OrganizationService.ts",
+          "widgetDropdownUrl": "/services/ts/codbex-organizations/gen/codbex-organizations/api/organizations/OrganizationService.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -915,7 +922,7 @@
           "widgetType": "DROPDOWN",
           "relationshipName": "Team_Department",
           "relationshipEntityName": "Department",
-          "relationshipEntityPerspectiveName": "Organizations",
+          "relationshipEntityPerspectiveName": "organizations",
           "relationshipEntityPerspectiveLabel": "Entities",
           "dataNotNull": false,
           "dataAutoIncrement": false,
@@ -924,7 +931,7 @@
           "isRequiredProperty": false,
           "isCalculatedProperty": false,
           "widgetLabel": "Department",
-          "widgetDropdownUrl": "/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/DepartmentService.ts",
+          "widgetDropdownUrl": "/services/ts/codbex-organizations/gen/codbex-organizations/api/organizations/DepartmentService.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -943,11 +950,12 @@
       "menuKey": "team",
       "menuLabel": "Team",
       "name": "Team",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/user.svg",
       "perspectiveLabel": "Teams",
       "perspectiveName": "Teams",
-      "perspectiveOrder": "106",
+      "perspectiveNavId": "company-navigation-group",
+      "perspectiveOrder": "300",
       "perspectiveRole": "",
       "roleRead": "codbex-organizations.Teams.TeamReadOnly",
       "roleWrite": "codbex-organizations.Teams.TeamFullAccess",
@@ -1038,7 +1046,7 @@
             "widgetType": "DROPDOWN",
             "relationshipName": "Team_Organization",
             "relationshipEntityName": "Organization",
-            "relationshipEntityPerspectiveName": "Organizations",
+            "relationshipEntityPerspectiveName": "organizations",
             "relationshipEntityPerspectiveLabel": "Entities",
             "dataNotNull": false,
             "dataAutoIncrement": false,
@@ -1047,7 +1055,7 @@
             "isRequiredProperty": false,
             "isCalculatedProperty": false,
             "widgetLabel": "Organization",
-            "widgetDropdownUrl": "/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/OrganizationService.ts",
+            "widgetDropdownUrl": "/services/ts/codbex-organizations/gen/codbex-organizations/api/organizations/OrganizationService.ts",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
             "inputRule": ""
@@ -1071,7 +1079,7 @@
             "widgetType": "DROPDOWN",
             "relationshipName": "Team_Department",
             "relationshipEntityName": "Department",
-            "relationshipEntityPerspectiveName": "Organizations",
+            "relationshipEntityPerspectiveName": "organizations",
             "relationshipEntityPerspectiveLabel": "Entities",
             "dataNotNull": false,
             "dataAutoIncrement": false,
@@ -1080,7 +1088,7 @@
             "isRequiredProperty": false,
             "isCalculatedProperty": false,
             "widgetLabel": "Department",
-            "widgetDropdownUrl": "/services/ts/codbex-organizations/gen/codbex-organizations/api/Organizations/DepartmentService.ts",
+            "widgetDropdownUrl": "/services/ts/codbex-organizations/gen/codbex-organizations/api/organizations/DepartmentService.ts",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
             "inputRule": ""
@@ -1396,10 +1404,11 @@
       "menuKey": "employee",
       "menuLabel": "Employee",
       "name": "Employee",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
       "perspectiveLabel": "Entities",
       "perspectiveName": "Employees",
+      "perspectiveNavId": "",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
       "projectionReferencedEntity": "Employee",

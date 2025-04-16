@@ -1,5 +1,0 @@
-{
-    "module": "codbex-organizations/gen/codbex-organizations/ui/Organizations/perspective.js",
-    "extensionPoint": "codbex-organizations",
-    "description": "codbex-organizations - Perspective - Organizations"
-}

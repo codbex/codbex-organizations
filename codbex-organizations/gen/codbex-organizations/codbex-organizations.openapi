@@ -9,11 +9,11 @@ externalDocs:
 servers:
   - url: /services/ts
 tags:
-  - name: Organizations
-  - name: Organizations
+  - name: organizations
+  - name: organizations
   - name: Teams
 paths:
-  /codbex-organizations/gen/codbex-organizations/api/Organizations/OrganizationService.ts:
+  /codbex-organizations/gen/codbex-organizations/api/organizations/OrganizationService.ts:
     get:
       summary: List Organization
       parameters:
@@ -34,7 +34,7 @@ paths:
             type: integer
             allowEmptyValue: true
       tags:
-        - Organizations
+        - organizations
       responses:
         200:
           description: Successful Request
@@ -65,7 +65,7 @@ paths:
     post:
       summary: Create Organization
       tags:
-        - Organizations
+        - organizations
       requestBody:
         content:
           application/json:
@@ -97,7 +97,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-organizations/gen/codbex-organizations/api/Organizations/OrganizationService.ts/{id}:
+  /codbex-organizations/gen/codbex-organizations/api/organizations/OrganizationService.ts/{id}:
     get:
       summary: Get Organization by Id
       parameters:
@@ -108,7 +108,7 @@ paths:
           schema:
             type: string
       tags:
-        - Organizations
+        - organizations
       responses:
         200:
           description: Successful Request
@@ -146,7 +146,7 @@ paths:
           schema:
             type: string
       tags:
-        - Organizations
+        - organizations
       requestBody:
         content:
           application/json:
@@ -194,7 +194,7 @@ paths:
           schema:
             type: string
       tags:
-        - Organizations
+        - organizations
       responses:
         204:
           description: Successful Request
@@ -216,11 +216,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-organizations/gen/codbex-organizations/api/Organizations/OrganizationService.ts/count:
+  /codbex-organizations/gen/codbex-organizations/api/organizations/OrganizationService.ts/count:
     get:
       summary: Count the number of Organization
       tags:
-        - Organizations
+        - organizations
       responses:
         200:
           description: Successful Request
@@ -244,7 +244,7 @@ paths:
     post:
       summary: Count the number of Organization by OrganizationFilterOptions
       tags:
-        - Organizations
+        - organizations
       requestBody:
         content:
           application/json:
@@ -328,11 +328,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-organizations/gen/codbex-organizations/api/Organizations/OrganizationService.ts/search:
+  /codbex-organizations/gen/codbex-organizations/api/organizations/OrganizationService.ts/search:
     post:
       summary: Search Organization by OrganizationFilterOptions
       tags:
-        - Organizations
+        - organizations
       requestBody:
         content:
           application/json:
@@ -417,7 +417,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-organizations/gen/codbex-organizations/api/Organizations/DepartmentService.ts:
+  /codbex-organizations/gen/codbex-organizations/api/organizations/DepartmentService.ts:
     get:
       summary: List Department
       parameters:
@@ -438,7 +438,7 @@ paths:
             type: integer
             allowEmptyValue: true
       tags:
-        - Organizations
+        - organizations
       responses:
         200:
           description: Successful Request
@@ -469,7 +469,7 @@ paths:
     post:
       summary: Create Department
       tags:
-        - Organizations
+        - organizations
       requestBody:
         content:
           application/json:
@@ -501,7 +501,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-organizations/gen/codbex-organizations/api/Organizations/DepartmentService.ts/{id}:
+  /codbex-organizations/gen/codbex-organizations/api/organizations/DepartmentService.ts/{id}:
     get:
       summary: Get Department by Id
       parameters:
@@ -512,7 +512,7 @@ paths:
           schema:
             type: string
       tags:
-        - Organizations
+        - organizations
       responses:
         200:
           description: Successful Request
@@ -550,7 +550,7 @@ paths:
           schema:
             type: string
       tags:
-        - Organizations
+        - organizations
       requestBody:
         content:
           application/json:
@@ -598,7 +598,7 @@ paths:
           schema:
             type: string
       tags:
-        - Organizations
+        - organizations
       responses:
         204:
           description: Successful Request
@@ -620,11 +620,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-organizations/gen/codbex-organizations/api/Organizations/DepartmentService.ts/count:
+  /codbex-organizations/gen/codbex-organizations/api/organizations/DepartmentService.ts/count:
     get:
       summary: Count the number of Department
       tags:
-        - Organizations
+        - organizations
       responses:
         200:
           description: Successful Request
@@ -648,7 +648,7 @@ paths:
     post:
       summary: Count the number of Department by DepartmentFilterOptions
       tags:
-        - Organizations
+        - organizations
       requestBody:
         content:
           application/json:
@@ -730,11 +730,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-organizations/gen/codbex-organizations/api/Organizations/DepartmentService.ts/search:
+  /codbex-organizations/gen/codbex-organizations/api/organizations/DepartmentService.ts/search:
     post:
       summary: Search Department by DepartmentFilterOptions
       tags:
-        - Organizations
+        - organizations
       requestBody:
         content:
           application/json:

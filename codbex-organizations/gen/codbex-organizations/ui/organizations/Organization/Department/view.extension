@@ -1,0 +1,6 @@
+{
+    "module": "codbex-organizations/gen/codbex-organizations/ui/organizations/Organization/Department/view.js",
+    "extensionPoint": "application-views",
+    "description": "codbex-organizations - Application View - Details",
+    "role": "codbex-organizations.Organizations.DepartmentReadOnly,codbex-organizations.Organizations.DepartmentFullAccess"
+}

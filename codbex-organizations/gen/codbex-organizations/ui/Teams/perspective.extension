@@ -1,5 +1,5 @@
 {
     "module": "codbex-organizations/gen/codbex-organizations/ui/Teams/perspective.js",
-    "extensionPoint": "codbex-organizations",
+    "extensionPoint": "application-perspectives",
     "description": "codbex-organizations - Perspective - Teams"
 }
