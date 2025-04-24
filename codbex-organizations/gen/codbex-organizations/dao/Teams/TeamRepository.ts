@@ -76,7 +76,7 @@ export interface TeamEntityOptions {
     },
     $select?: (keyof TeamEntity)[],
     $sort?: string | (keyof TeamEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
 }
@@ -134,10 +134,10 @@ export class TeamRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(TeamRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(TeamRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: TeamEntityOptions): TeamEntity[] {
+    public findAll(options: TeamEntityOptions = {}): TeamEntity[] {
         return this.dao.list(options);
     }
 

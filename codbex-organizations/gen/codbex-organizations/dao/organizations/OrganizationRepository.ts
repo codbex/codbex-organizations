@@ -67,7 +67,7 @@ export interface OrganizationEntityOptions {
     },
     $select?: (keyof OrganizationEntity)[],
     $sort?: string | (keyof OrganizationEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
 }
@@ -120,10 +120,10 @@ export class OrganizationRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(OrganizationRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(OrganizationRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: OrganizationEntityOptions): OrganizationEntity[] {
+    public findAll(options: OrganizationEntityOptions = {}): OrganizationEntity[] {
         return this.dao.list(options);
     }
 

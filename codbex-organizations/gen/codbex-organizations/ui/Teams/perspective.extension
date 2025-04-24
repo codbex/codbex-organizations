@@ -1,5 +1,6 @@
 {
     "module": "codbex-organizations/gen/codbex-organizations/ui/Teams/perspective.js",
     "extensionPoint": "application-perspectives",
-    "description": "codbex-organizations - Perspective - Teams"
+    "description": "codbex-organizations - Perspective - Teams",
+    "role": "codbex-organizations.Teams.TeamReadOnly,codbex-organizations.Teams.TeamFullAccess"
 }
