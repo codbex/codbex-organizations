@@ -1,5 +1,6 @@
 {
     "module": "codbex-organizations/gen/codbex-organizations/ui/organizations/perspective.js",
     "extensionPoint": "application-perspectives",
-    "description": "codbex-organizations - Perspective - organizations"
+    "description": "codbex-organizations - Perspective - organizations",
+    "role": "codbex-organizations.Organizations.OrganizationReadOnly,codbex-organizations.Organizations.OrganizationFullAccess"
 }

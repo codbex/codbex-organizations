@@ -58,7 +58,7 @@ export interface DepartmentEntityOptions {
     },
     $select?: (keyof DepartmentEntity)[],
     $sort?: string | (keyof DepartmentEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
 }
@@ -106,10 +106,10 @@ export class DepartmentRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(DepartmentRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(DepartmentRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: DepartmentEntityOptions): DepartmentEntity[] {
+    public findAll(options: DepartmentEntityOptions = {}): DepartmentEntity[] {
         return this.dao.list(options);
     }
 
